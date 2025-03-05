@@ -1,0 +1,9 @@
+tr.select:hover,
+.active {
+    background-color: aliceblue;
+    cursor: pointer;
+}
+
+tr.select td {
+    padding: 10px;
+}
