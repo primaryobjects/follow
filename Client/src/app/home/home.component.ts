@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material.module';
@@ -9,7 +9,7 @@ import { PersonService } from '../person.service';
 
 @Component({
   selector: 'app-home',
-  imports: [NgFor, NgIf, MaterialModule, FormsModule],
+  imports: [NgIf, MaterialModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

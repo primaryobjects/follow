@@ -11,3 +11,7 @@ tr.select td {
 #details {
     margin-top: 15px;
 }
+
+.results {
+    min-width: 500px;
+}
