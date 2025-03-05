@@ -36,9 +36,11 @@ export class HomeComponent {
   }
 
   async deleteFollow(follow: Follow) {
-    this.followService.remove(follow);
-    if (this.person && this.person.following) {
-      this.person.following = this.person.following.filter(f => f !== follow);
+    if (confirm(`Are you sure you would like to remove ${follow.followerB?.firstName} ${follow.followerB?.lastName}?`)) {
+      this.followService.remove(follow);
+      if (this.person && this.person.following) {
+        this.person.following = this.person.following.filter(f => f !== follow);
+      }
     }
   }
 }
