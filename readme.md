@@ -2,6 +2,8 @@
 
 A tutorial project for displaying users and their followers, developed in ASP .NET Core Web API and Angular.
 
+![screenshot](screenshot.gif)
+
 ## Summary
 
 This project demonstrates creating a full-stack web application using ASP .NET Core Web API for the backend service with Angular and Material Design for the frontend client. The application displays an SQLite database of people and their followers. A person can follow another person, which is displayed upon selecting a name from the list.
