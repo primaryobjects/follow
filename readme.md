@@ -72,6 +72,29 @@ This project demonstrates creating a full-stack web application using ASP .NET C
 - **Description:** Removes a follower by ID.
 - **Parameters:** `id` - GUID of the follower.
 
+### Get All People
+- **Endpoint:** `GET /api/person`
+- **Description:** Retrieves a list of all people.
+- **Parameters:** `id` - GUID of the follower.
+
+### Get Person by ID
+- **Endpoint:** `GET /api/person/{id}`
+- **Description:** Retrieves a person by id.
+- **Parameters:** `id` - GUID of the person.
+
+### Add a Person
+- **Endpoint:** `POST /api/person`
+- **Description:** Adds a new person.
+- **Body:** 
+    ```json
+    {
+    "id": "GUID",
+    "createDate": "2025-03-05T22:02:08.711Z",
+    "firstName": "Alice",
+    "lastName": "Doe"
+    }
+    ```
+
 ## Tech-Stack
 - **Backend:** ASP .NET Core Web API, Entity Framework, SQLite
 - **Frontend:** TypeScript, Angular, Material Design
