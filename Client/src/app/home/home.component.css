@@ -7,3 +7,7 @@ tr.select:hover,
 tr.select td {
     padding: 10px;
 }
+
+#details {
+    margin-top: 15px;
+}

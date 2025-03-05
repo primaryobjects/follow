@@ -1,29 +1,61 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let p of people; let i = index" [class.active]="p.id == person?.id" class="select"
-            (click)="showDetails(p)">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ p.firstName }}</td>
-            <td>{{ p.lastName }}</td>
-        </tr>
-    </tbody>
-</table>
+<section class="results">
+    <table mat-table matSort [dataSource]="people" class="mat-elevation-z8">
+        <caption>People and Followers.</caption>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let person"> {{person.id}} </td>
+        </ng-container>
 
-<div *ngIf="person" id="details">
-    <div>Name: {{ person.firstName }} {{ person.lastName }}</div>
-    <div>Created: {{ person.createDate.toLocaleString() }} </div>
-    <div *ngIf="person.following.length">Following:</div>
-    <div *ngFor="let follow of person.following">
-        <div *ngIf="follow.followerB">
-            {{ follow.followerB.firstName }} {{ follow.followerB.lastName }}
-            <a href="#" (click)="deleteFollow(follow)">remove</a>
+        <!-- First Name Column -->
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+            <td mat-cell *matCellDef="let person"> {{person.firstName}} </td>
+        </ng-container>
+
+        <!-- Last Name Column -->
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+            <td mat-cell *matCellDef="let person"> {{person.lastName}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let p; columns: displayedColumns;" [class.active]="p.id == person?.id" class="select"
+            (click)="showDetails(p)"></tr>
+    </table>
+</section>
+
+<mat-card *ngIf="person" id="details">
+    <mat-card-header>
+        <mat-card-title>{{ person.firstName }} {{ person.lastName }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div>Created: {{ person.createDate.toLocaleString() }} </div>
+        <div *ngIf="person.following?.length">
+            <div>Following:</div>
+            <div>
+                <table mat-table [dataSource]="person.following" class="mat-elevation-z8">
+                    <ng-container matColumnDef="firstName">
+                        <th mat-header-cell *matHeaderCellDef> First Name </th>
+                        <td mat-cell *matCellDef="let follow"> {{ follow.followerB.firstName }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="lastName">
+                        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                        <td mat-cell *matCellDef="let follow"> {{ follow.followerB.lastName }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> Actions </th>
+                        <td mat-cell *matCellDef="let follow">
+                            <a mat-button href="#" (click)="deleteFollow(follow)">remove</a>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="['firstName', 'lastName', 'actions']"></tr>
+                    <tr mat-row *matRowDef="let follow; columns: ['firstName', 'lastName', 'actions'];"></tr>
+                </table>
+            </div>
         </div>
-    </div>
-</div>
+    </mat-card-content>
+</mat-card>
