@@ -17,6 +17,13 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
+
+// Configure default files to serve index.html by default
+app.UseDefaultFiles(new DefaultFilesOptions
+{
+    DefaultFileNames = ["index.html"]
+});
+
 app.UseStaticFiles();
 app.MapControllers();
 

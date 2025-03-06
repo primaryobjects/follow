@@ -116,7 +116,7 @@ To build a deployment for hosting on a web server, use the following steps.
     ng build
     ```
 3. Copy the database file `Service/data.sqlite` into `/publish`.
-4. Copy the file `Service/.env` into `/publish`. This file should contain the following line: `ConnectionString="Data Source=data.sqlite;"`
+4. Copy the file `Service/.env` into `/publish`. This file should contain the following line: `ConnectionString="Data Source=data.sqlite;"`  *Note, when deploying to a web host these values can be stored in environment variables instead of the file.*
 5. Create a folder `publish/wwwroot`.
 6. Copy the files `Client/dist/client/browser/*.*` into `/publish/wwwroot`.
 7. Run the executable `/publish/follow.exe`
