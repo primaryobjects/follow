@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment';
 import { Follow } from './follow';
 import { Person } from './person';
 
@@ -6,7 +7,7 @@ import { Person } from './person';
   providedIn: 'root'
 })
 export class FollowService {
-  readonly url: string = 'http://localhost:5122/api/follower';
+  readonly url: string = `${environment.apiUrl}/follower`;
 
   constructor() { }
 
