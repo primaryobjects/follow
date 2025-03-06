@@ -19,15 +19,19 @@ This project demonstrates creating a full-stack web application using ASP .NET C
     ```sh
     cd /Service
     ```
-2. Restore the dependencies:
+2. Create a file `/Service/.env` with the following contents.
+    ```
+    ConnectionString="Data Source=data.sqlite;"
+    ```
+3. Restore the dependencies:
     ```sh
     dotnet restore
     ```
-3. Run the backend service:
+4. Run the backend service:
     ```sh
     dotnet run
     ```
-4. Open your browser and navigate to the Swagger API explorer `http://localhost:5122/swagger`.
+5. Open your browser and navigate to the Swagger API explorer `http://localhost:5122/swagger`.
 
 ### Frontend Setup
 1. Navigate to the frontend project directory:
@@ -112,7 +116,7 @@ To build a deployment for hosting on a web server, use the following steps.
     ng build
     ```
 3. Copy the database file `Service/data.sqlite` into `/publish`.
-4. Copy the file `Service/.env` into `/publish`.
+4. Copy the file `Service/.env` into `/publish`. This file should contain the following line: `ConnectionString="Data Source=data.sqlite;"`
 5. Create a folder `publish/wwwroot`.
 6. Copy the files `Client/dist/client/browser/*.*` into `/publish/wwwroot`.
 7. Run the executable `/publish/follow.exe`
