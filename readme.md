@@ -95,6 +95,30 @@ This project demonstrates creating a full-stack web application using ASP .NET C
     }
     ```
 
+## Deployment
+
+To build a deployment for hosting on a web server, use the following steps.
+
+1. In Visual Studio Code, open a terminal and run the following commands.
+    ```
+    cd service
+    dotnet build
+    dotnet publish -c Release -o ./publish
+    ```
+2. Build the Angular client using the following command.
+    ```
+    cd ..
+    cd client
+    ng build
+    ```
+3. Copy the database file `Service/data.sqlite` into `/publish`.
+4. Copy the file `Service/.env` into `/publish`.
+5. Create a folder `publish/wwwroot`.
+6. Copy the files `Client/dist/client/browser/*.*` into `/publish/wwwroot`.
+7. Run the executable `/publish/follow.exe`
+
+The web application will begin running on port 5000. The executable is a self-contained web server, similar to a node.js application, and may be deployed to a Windows web server or Microsoft Azure.
+
 ## Tech-Stack
 - **Backend:** ASP .NET Core Web API, Entity Framework, SQLite
 - **Frontend:** TypeScript, Angular, Material Design
