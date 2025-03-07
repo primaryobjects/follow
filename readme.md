@@ -10,11 +10,14 @@ This project demonstrates creating a full-stack web application using ASP .NET C
 
 ## Quick Start
 
+After the initial setup steps below, you can run the VS Code command **Run server and client**.
+
 ### Prerequisites
 - .NET 6.0 SDK or later
 - Angular CLI
 
 ### Backend Setup
+
 1. Navigate to the backend project directory:
     ```sh
     cd /Service
@@ -63,7 +66,7 @@ This project demonstrates creating a full-stack web application using ASP .NET C
 ### Add a Follower
 - **Endpoint:** `POST /api/follower`
 - **Description:** Adds a new follower.
-- **Body:** 
+- **Body:**
     ```json
     {
         "followerId": "GUID",
@@ -89,7 +92,7 @@ This project demonstrates creating a full-stack web application using ASP .NET C
 ### Add a Person
 - **Endpoint:** `POST /api/person`
 - **Description:** Adds a new person.
-- **Body:** 
+- **Body:**
     ```json
     {
     "id": "GUID",
@@ -101,7 +104,7 @@ This project demonstrates creating a full-stack web application using ASP .NET C
 
 ## Deployment
 
-To build a deployment for hosting on a web server, use the following steps.
+To build a deployment for hosting on a web server, run the VS Code command **Publish** or use the following steps.
 
 1. In Visual Studio Code, open a terminal and run the following commands.
     ```
@@ -117,9 +120,8 @@ To build a deployment for hosting on a web server, use the following steps.
     ```
 3. Copy the database file `Service/data.sqlite` into `/publish`.
 4. Copy the file `Service/.env` into `/publish`. This file should contain the following line: `ConnectionString="Data Source=data.sqlite;"`  *Note, when deploying to a web host these values can be stored in environment variables instead of the file.*
-5. Create a folder `publish/wwwroot`.
-6. Copy the files `Client/dist/client/browser/*.*` into `/publish/wwwroot`.
-7. Run the executable `/publish/follow.exe`
+5. Copy the files `Client/dist/client/browser/*.*` into `/publish/wwwroot`.
+6. Run the executable `/publish/follow.exe`
 
 The web application will begin running on port 5000. The executable is a self-contained web server, similar to a node.js application, and may be deployed to a Windows web server or Microsoft Azure.
 

@@ -1,3 +1,6 @@
+using DotNetEnv;
+Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,7 +19,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.UseHttpsRedirection();
+if (Environment.GetEnvironmentVariable("UseHttps") == "true")
+{
+    app.UseHttpsRedirection();
+}
 
 // Configure default files to serve index.html by default
 app.UseDefaultFiles(new DefaultFilesOptions
